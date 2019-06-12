@@ -1,3 +1,5 @@
+# 예제 1-6. 영어 문서 분석하기 - 스티브 잡스 연설문 분석하기
+
 install.packages('tm')
 library(tm)
 library(wordcloud)

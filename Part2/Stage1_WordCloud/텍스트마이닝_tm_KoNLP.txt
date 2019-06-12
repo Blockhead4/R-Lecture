@@ -1,0 +1,3 @@
+# 텍스트 마이닝 - tm 및 KoNLP 패키지 소개
+
+# https://m.blog.naver.com/PostView.nhn?blogId=hsj2864&logNo=220978317440&proxyReferer=https%3A%2F%2Fwww.google.com%2F
