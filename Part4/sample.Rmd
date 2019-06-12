@@ -1,0 +1,75 @@
+---
+title: "Sample"
+author: "JWP"
+date: '2019 6 10 '
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+### Anscombe's Quartet
+```{r}
+anscombe
+```
+
+```{r}
+library(ggplot2)
+qplot(data=mpg, x=drv, fill=drv)
+```
+
+
+*Italic* <br>
+**Bold**
+
+***Bold & Italic***
+
+
+~~취소선~~ <br><br>
+
+[하이퍼링크 - 이젠](http://www.naver.co.kr)
+
+#### 순서 없는 목록(Unordered List)
+* 수박
+* 참외
+* 토마토
+
+* 토마토 (*, +, - 동일한 효과)
+    * 완숙 토마토
+    * 방울 토마토
+  
+#### 순서 있는 목록(Ordered List)
+1. R
+2. Python
+3. Java
+    1) Eclipse
+    2) C#
+    
+    
+#### 표 그리기
+header 1 | header2 | haeder3
+-|-|-
+row1 col1 | row1 col2 | row1 col3
+row2 col1 | row2 col2 | row2 col3
+
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
