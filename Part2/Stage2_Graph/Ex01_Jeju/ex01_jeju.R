@@ -112,15 +112,14 @@ df_top10_3
 install.packages('extrafont')
 library(extrafont)
 windowsFonts()
-windowsFonts(malgun = "궁서")
+windowsFonts(malgun = "맑은 고딕")
 theme_update(text=element_text(family = "malgun"))
 
 ggplot(df_top10_3, aes(x="", y=Freq, fill=rev)) +
   geom_bar(width=1, stat='identity') +
   geom_text(aes(y=ypos, label=ylabel), cex=4, color="black", family="malgun")
 
-
-ggplot(df_top10_2, aes(x="", y=Freq, fill=rev)) +
+ggplot(df_top10_3, aes(x="", y=Freq, fill=rev)) +
   geom_bar(width=1, stat='identity') +
   coord_polar(theta = "y", start = 0) +
   geom_text(aes(y=ypos, label=ylabel), color="black", family="malgun")

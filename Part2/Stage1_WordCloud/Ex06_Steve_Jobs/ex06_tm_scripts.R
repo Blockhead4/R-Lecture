@@ -11,22 +11,22 @@ library(RColorBrewer)
 data1 <- readLines("data/steve.txt")
 data1
 class(data1)
-# data1 <- iconv(data1, "WINDOWS-1252", "UTF-8")
-corp1 <- Corpus(VectorSource(data1))
+# data1 <- iconv(data1, "WINDOWS-1252", "UTF-8")    # UTF-8 로 변경
+corp1 <- Corpus(VectorSource(data1))    # 말뭉치로 변환하기
 corp1
 
 # 위 corp1 명령의 결과에서 documents :4 부분이 중요
-inspect(corp1)
+inspect(corp1)    # corp1(Corpus) 안의 내용 살펴보기
 tdm <- TermDocumentMatrix(corp1)
 tdm
 m <- as.matrix(tdm)
 m
 
-# tm_map : 불필요한 단어 제거
+# tm_map : Corpus 안에 있는 문서의 내용을 지정한 형태로 변경
 corp2 <- tm_map(corp1, stripWhitespace)   # 공백 제거
 corp2 <- tm_map(corp2, tolower)           # 소문자로 바꿔라
-corp2 <- tm_map(corp2, removeNumbers)
-corp2 <- tm_map(corp2, removePunctuation)
+corp2 <- tm_map(corp2, removeNumbers)     # 숫자 제거
+corp2 <- tm_map(corp2, removePunctuation) # 마침표, 콤마, 세미콜론, 콜론 등 문자 제거
 #corp2 <- tm_map(corp2, PlainTextDocument)   # 현 버전에서는 에러 발생
 
 # stopwords('en') : 영 단어중 쓸데 없는 단어들 모음 / en : English 
