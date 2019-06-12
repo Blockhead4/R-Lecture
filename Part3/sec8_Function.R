@@ -63,17 +63,16 @@ apply(Fruits[,c(4,5)],2,max)
 
 Fruits
 # tapply(출력값, 기준컬럼, 적용함수) / mapply(함수, 벡터1, 벡터2, ...)
-tapply(Sales,Fruit,sum)
+tapply(Sales, Fruits, sum)
 
 attach(Fruits)      # attach()는 각 컬럼 이름을 '변수명'처럼 처리해서 데이터를 쉽게 관리하게 하는 기능
-tapply(Sales,Fruit,sum)
-tapply(Sales,Year,sum)
+tapply(Sales, Fruit, sum)
+tapply(Sales, Year, sum)
 
-vec1 <- seq(1,5)
-vec2 <- seq(10,50,10)
-vec3 <- seq(100,500,100)
-mapply(sum,vec1,vec2,vec3)
-
+vec1 <- seq(1,5); vec1
+vec2 <- seq(10,50,10); vec2
+vec3 <- seq(100,500,100); vec3
+mapply(sum, vec1, vec2, vec3) 
 
 # sweep() 함수
 

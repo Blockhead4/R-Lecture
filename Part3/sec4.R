@@ -24,6 +24,7 @@ first <- 1     # first에 값 1을 넣으면 fitst 입력시 1이 출력됨
 first
 
 class(1)       # 값이 어떤 형식(문자열, 숫자, 논리)인지 확인
+typeof(1)
 class("1")
 class(!0)
 

@@ -49,7 +49,7 @@ df4$NAME
 df5 <- data.frame(name=c('apple','banana','cherry'),price=c(300,200,100)); df5
 df6 <- data.frame(name=c('apple','cherry','berry'),qty=c(10,20,30)); df6
 
-merge(df5,df6)           # df1 기준으로 df2와 공통으로 있는 name 컬럼 데이터를 출력
+merge(df5,df6)           # df5 기준으로 df6와 공통으로 있는 name 컬럼 데이터를 출력
 merge(df5,df6,all=T)     # 데이터가 없는것도 모두 나오도록 출력
 
 rbind(df5,df6)     # name이 달라서 에러

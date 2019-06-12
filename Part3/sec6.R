@@ -23,6 +23,7 @@ append(vec1,10,after=3)   # 벡터에 새로운 요소를 추가
 append(vec1,13,after=5)
 append(vec1,c(10,13),after=3)
 append(vec1,13,after=0)   # 0은 가장 앞자리라는 특별한 의미가 있음
+append(vec1, 22, length(vec1))    # 맨 마지막 자리에 추가
 
 c(1,2,3) + c(4,5,6)
 c(1,2,3) + 1

@@ -7,7 +7,7 @@ grep('apple', char)
 char2 <- c('apple', 'banana'); char2
 grep(char2, char)
 
-grep(paste(char2, collapse='|'), char, value=T)     # value = T  값 자체를 출력
+grep(paste(char2, collapse='|'), char, value=T)     # value = T : 값 자체를 출력
 
 grep('pp', char)
 grep('pp', char, value=T)
