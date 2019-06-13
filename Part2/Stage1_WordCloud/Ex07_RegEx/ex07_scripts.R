@@ -10,8 +10,9 @@ error_1 <- gsub(" ", "_", alert)
 head(unlist(error_1), 20)
 error_2 <- unlist(error_1)
 error_2 <- Filter(function(x) {nchar(x) >= 5}, error_2)
+error_2
 
-error_3 <- grep("^ORA-+", error_2, value = T)    # 문장의 맨 처음이 "ORA-" 로 시작하는 것만 찾기
+error_3 <- grep("^ORA-+", error_2, value = T)    # grep : 문장의 맨 처음이 "ORA-" 로 시작하는 것만 찾기
 head(unlist(error_3), 20)
 
 write(unlist(error_3), "Part2/Stage1_WordCloud/Ex07_RegEx/alert_testdb2.log")

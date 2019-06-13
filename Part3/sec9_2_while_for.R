@@ -15,6 +15,7 @@ while (x < 5) {
     break
   print(x)
 }
+x <- 1
 while (x < 5) { x <- x + 1; if (x == 4) break; print(x); }    # 한 줄로 표현
 
 n <- -1
@@ -105,8 +106,6 @@ fn2 <- function(n) {
 }
 fn2(10)
 
-
-
 library(stringr)
 
 for (i in 1:5) {
@@ -124,7 +123,6 @@ for (i in 5:1) {
   }
   print(line)
 }
-
 
 # 삼각형 거꾸로 그리기 --- 이해 요망 ---
 for (i in 1:5) {
@@ -186,7 +184,6 @@ for (i in 1:7) {
   }
 }
 
-
 # 좀 더 짧게 만들기 : i != 4 이용
 for (i in 1:7) {
   line <- ''
@@ -212,19 +209,8 @@ for (i in 1:7) {
   }
 }
 
-
-
-
-
 str_c(line, '#', '#')
 print(line)
-
-
-
-
-
-
-
 
 ## 구구단
 

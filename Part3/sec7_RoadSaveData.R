@@ -1,5 +1,7 @@
 # Load and Save Data
 
+setwd("C:/Users/Jinweon_Park/Desktop/work_space/R-Lecture/data")
+
 list.files()     # Working Directory 파일들을 보여줌
 list.files(recursive = T)     # Working Directory 포함 하위 디렉터리 파일들을 보여줌
 list.files(all.files = T)     # 숨김 파일까지 전부 보여줌
