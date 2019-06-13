@@ -1,11 +1,9 @@
 # 미션 3-2. 얘들아....고민이 뭐니?
 
-install.packages("XLConnect")
 install.packages('readxl')
 
 library(ggplot2)
 library(reshape2)
-library(XLConnect)
 library(readxl)
 
 
@@ -14,9 +12,9 @@ category1 <- matrix(c("남자", "여자",
                     "흡연", "음주",             
                     "중학생", "고등학생"),
                     nrow=2)
-category1[,3]
+category1
 category2 <- c("남자", "여자", "중학생", "고등학생", "대학생")
-category2[2]
+category2
 
 # 각 데이터별 목록명 생성
 cname <- c("성별", "흡연여부", "교육수준")
@@ -81,9 +79,17 @@ plotf <- function(i) {
   
 }
 
-# 원하는 데이터의 그래프 출력
+# 주요 고민거리
 plotf(1)
+# 흡연율과 음주율
 plotf(2)
+# 학교 생활 만족도
+plotf(3)
+# 학교 폭력 사유
+plotf(4)
+# 직업 선택 요인
+plotf(5)
+# 직장 선호도
 plotf(6)
 
 
@@ -95,8 +101,12 @@ plotf(6)
 
 # 데이터 셋 받기
 
-var <- c()
-for(i in 2:7) {
+sheets <- excel_sheets("data/청소년통계.xls")
+sheets
+
+dataset <- c()
+for(i in 1:(length(sheets)-1)) {
+  i <- i+1
   if(i <= 4) {
     temp <- read_excel("data/청소년통계.xls", sheet = i, col_names = T, col_types = "numeric", na = "NA")
     temp <- as.data.frame(temp)
@@ -122,4 +132,9 @@ for(i in 2:7) {
     var <- paste("data", i, sep="")
     assign(var, temp)
   }
+  dataset <- c(dataset, paste("data",i, sep=""))
 }
+
+dataset     # 데이터들의 변수명을 저장
+get(dataset[1])     # get() : 변수명으로 변수안의 데이터들 불러오기
+get(dataset[6])
