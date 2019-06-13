@@ -65,7 +65,7 @@ fruits6 <- read.delim('clipboard',header=T); fruits6     # 클립보드 내용�
 install.packages('readxl')
 library(readxl)
 
-fruits7 <- read_excel("fruits_6.xls", # path
+fruits7 <- read_excel("data/fruits_6.xls", # path
 sheet = "Sheet1", # sheet name to read from
  range = "A2:D6", # cell range to read from
 col_names = TRUE, # TRUE to use the first row as column names
