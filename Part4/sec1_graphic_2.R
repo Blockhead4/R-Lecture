@@ -30,10 +30,10 @@ pie(value, labels=lab, radius=0.1, cex=0.6, col=NA)     # 파이 그래프를 �
 stars(total2, flip.labels=F, draw.segments=T, frame.plot=T, full=T, main='학생별 과목별 성적분석 - 나이팅게일 차트')
 
 label <- names(total2)               # 파이차트로 범례만들어 합치기
+label
 value <- table(label); value
 color <- c('black','red','green','blue','cyan','violet')
 pie(value, labels=label, col=color, radius=0.1, cex=0.6)
-
 
 
 # radarchart() 함수로 멋진 레이더차트 출력하기 : 레이더 차트

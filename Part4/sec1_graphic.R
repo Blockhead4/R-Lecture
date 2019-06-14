@@ -73,7 +73,7 @@ plot(v1, type = 's', col = 'red', ylim = c(1, 10))
 lines(v2, type = 'o', col = 'blue', ylim = c(1, 5))
 lines(v3, type = 'l', col = 'green', ylim = c(1, 15))
 
-legend(4, 9, c('v1', 'v2', 'v3'), cex = 0.9, col = c('red', 'blue', 'green'), lty = 1)
+legend(4, 9, c('v1', 'v2', 'v3'), cex = 1.2, col = c('red', 'blue', 'green'), lty = 1)
 
 
 
