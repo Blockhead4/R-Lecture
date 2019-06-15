@@ -33,11 +33,11 @@ df_score
 # 2) 위 자료에 평균이라는 필드를 추가하고 중간과 기말 시험의 평균을 구해서 평균이라는 필드에 할당하시오.
 
 df_score$평균 <- NA
-for(i in 1:nrow(df_score)) {
-  df_score$평균[i] <- mean(c(df_score$중간[i], df_score$기말[i]))
-}
+for(i in 1:nrow(df_score)) {df_score$평균[i] <- mean(c(df_score$중간[i], df_score$기말[i]))}
 df_score
 
+df_score <- df_score %>% mutate(평균=(df_score$중간+df_score$기말)/2)
+df_score
 
 # 3. 2번 문제에 학점이라는 필드를 만들고, 평균 성적에 따라 학점을 부여하시오.
 df_score$학점 <- ""
@@ -80,17 +80,20 @@ data1
 boxplot(data1, col="pink", main="Setosa - Sepal.Width Box Plot")
 
 # 2) 이상치를 제거하기 전과 후의 평균과 표준편차
-data2 <- c(mean(data1$Sepal.Width), sd(data1$Sepal.Width))
+data2 <- as.data.frame(c(mean(data1$Sepal.Width), sd(data1$Sepal.Width)))
 
 for(i in 1:nrow(data1)) {
   if(data1[i,] < 2.5) print(i)
 }
 rdata1 <- data1[-42,]
-data3 <- c(mean(rdata1), sd(rdata1))
+data3 <- as.data.frame(c(mean(rdata1), sd(rdata1)))
+colnames(data2) <- "이상치 제거 전"
+rownames(data2) <- c("평균", "표준편차")
+colnames(data3) <- "이상치 제거 후"
+rownames(data3) <- c("평균", "표준편차")
 
 data2
 data3
-
 
 # 6. R 내장 데이터인 "mpg"를 이용하여 다음을 구하시오.
 #    toyota에서 제작한 모델 중 시내주행연비(cty)와 고속도로주행연비(hwy)의 
@@ -98,9 +101,10 @@ data3
 
 top3 <- mpg %>%
   filter(manufacturer=="toyota") %>%
-  group_by(model) %>%
-  summarise(average=mean(cty+hwy)) %>%
-  arrange(desc(average)) %>%
+  group_by(manufacturer, model) %>%
+  mutate(average=(cty+hwy)/2) %>%
+  summarise(max_average = max(average)) %>%
+  arrange(desc(max_average)) %>%
   head(3)
 top3
 
