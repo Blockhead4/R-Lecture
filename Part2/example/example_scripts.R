@@ -112,6 +112,7 @@ age_income <- welfare %>%
   filter(!is.na(welfare$income)) %>%
   group_by(age) %>%
   summarise(mean_income = mean(income))
+age_income
 
 welfare %>%
   filter(!is.na(welfare$income)) %>%
@@ -145,7 +146,7 @@ ageg_income
 # 그래프 만들기
 ggplot(data = ageg_income, aes(x=ageg, y=mean_income, fill=ageg)) +
   geom_col() +
-  scale_x_discrete(ageg, "20대이하", "30대", "40대", "50대", "60대이상")
+  scale_x_discrete(limits = c("20대이하", "30대", "40대", "50대", "60대이상"))
   
 
 # 3. 연령대 및 성별 월급 차이
