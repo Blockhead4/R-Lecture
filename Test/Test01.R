@@ -54,18 +54,32 @@ for(i in 1:nrow(df_score)) {
     df_score$학점[i] <- "F"
   }
 }
-df_score
+
+df_score %>%
+  mutate(학점 = ifelse(df_score$평균 >= 90, "A",
+                ifelse(df_score$평균 >= 80, "B",
+                ifelse(df_score$평균 >= 70, "C",
+                ifelse(df_score$평균 >= 60, "D", "F")))))
 
 
 # 4. 양의 정수를 매개변수로 받아 1에서부터 매개변수 값까지 홀수를 더해서 그 결과를 리턴하는 함수 oddSum을 작성하고,
 #    oddSum(100)의 값을 계산해 보시오.
 
 oddSum <- function(num) {
-  sum <- 1
-  for(i in 2:num) {
+  sum <- 0
+  for(i in 1:num) {
     if(i %% 2 == 1) {
       sum <- sum + i
     }
+  }
+  return(sum)
+}
+oddSum(100)
+
+oddSum <- function(num) {
+  sum <- 0
+  for(i in seq(1, num, 2)) {
+      sum <- sum + i
   }
   return(sum)
 }
@@ -77,7 +91,10 @@ oddSum(100)
 # 1) "setosa" 종 Sepal.Width의 Box Plot을 그려 이상치를 확인할 것
 data1 <- select(subset(iris, Species == "setosa"), Sepal.Width)
 data1
-boxplot(data1, col="pink", main="Setosa - Sepal.Width Box Plot")
+boxplot(data1, col="pink", main="Setosa - Sepal.Width Box Plot")    # boxplot, geom_boxplot 의 차이점이 뭘까? 왜 다른 결과가 나오는지??
+ggplot(data1, aes(x="", y=Sepal.Width)) +
+  stat_boxplot(geom = "errorbar", width=0.5) +
+  geom_boxplot()
 
 # 2) 이상치를 제거하기 전과 후의 평균과 표준편차
 data2 <- as.data.frame(c(mean(data1$Sepal.Width), sd(data1$Sepal.Width)))
@@ -103,9 +120,9 @@ top3 <- mpg %>%
   filter(manufacturer=="toyota") %>%
   group_by(manufacturer, model) %>%
   mutate(average=(cty+hwy)/2) %>%
-  summarise(max_average = max(average)) %>%
-  arrange(desc(max_average)) %>%
-  head(3)
+  summarise(avg = mean(average)) %>%
+  arrange(desc(avg)) %>%
+  head(10)
 top3
 
 
@@ -164,7 +181,8 @@ ggplot(d2, aes(x=clarity, y=average_price, fill=clarity)) + geom_histogram(stat=
 b <- read.csv("data/야구성적.csv")
 b1 <- b %>%
   mutate(OPS = 출루율+장타율) %>%
-  mutate(연봉대비OPS = OPS/연봉*100)
+  mutate(연봉대비OPS = OPS/연봉*100) 
+# mutate(OPS = 출루율+장타율, 연봉대비OPS = OPS/연봉*100)
 select(b1, 선수명, OPS, 연봉대비OPS)
 
 # 2) 연봉대비OPS를 선수별로 비교할 수 있는 막대그래프
