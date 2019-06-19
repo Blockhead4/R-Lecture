@@ -1,11 +1,10 @@
-# ì•Œê³ ë¦¬ì¦˜ Level 1
+# ¾Ë°í¸®Áò Level 1
 library(stringr)
-library(dplyr)
 
-# 1. ë¬¸ìžì—´ ë‹¤ë£¨ê¸° ê¸°ë³¸
-# alpha_string46í•¨ìˆ˜ëŠ” ë¬¸ìžì—´ së¥¼ ë§¤ê°œë³€ìˆ˜ë¡œ ìž…ë ¥ë°›ìŠµë‹ˆë‹¤. 
-# sì˜ ê¸¸ì´ê°€ 4í˜¹ì€ 6ì´ê³ , ìˆ«ìžë¡œë§Œ êµ¬ì„±ë˜ìžˆëŠ”ì§€ í™•ì¸í•´ì£¼ëŠ” í•¨ìˆ˜ë¥¼ ì™„ì„±í•˜ì„¸ìš”. 
-# ì˜ˆë¥¼ë“¤ì–´ sê°€ â€œa234â€ì´ë©´ Falseë¥¼ ë¦¬í„´í•˜ê³  â€œ1234â€ë¼ë©´ Trueë¥¼ ë¦¬í„´í•˜ë©´ ë©ë‹ˆë‹¤
+# 1. ¹®ÀÚ¿­ ´Ù·ç±â ±âº»
+# alpha_string46ÇÔ¼ö´Â ¹®ÀÚ¿­ s¸¦ ¸Å°³º¯¼ö·Î ÀÔ·Â¹Þ½À´Ï´Ù. 
+# sÀÇ ±æÀÌ°¡ 4È¤Àº 6ÀÌ°í, ¼ýÀÚ·Î¸¸ ±¸¼ºµÇÀÖ´ÂÁö È®ÀÎÇØÁÖ´Â ÇÔ¼ö¸¦ ¿Ï¼ºÇÏ¼¼¿ä. 
+# ¿¹¸¦µé¾î s°¡ ¡°a234¡±ÀÌ¸é False¸¦ ¸®ÅÏÇÏ°í ¡°1234¡±¶ó¸é True¸¦ ¸®ÅÏÇÏ¸é µË´Ï´Ù
 
 alpha_string46 <- function(s) {
   if((nchar(s) == 4 | nchar(s) == 6) & grepl("[A-Za-z]", s) == F) {
@@ -14,14 +13,16 @@ alpha_string46 <- function(s) {
     return(F)
   }
 }
+s <- 1234
+s <- "a1234"
 alpha_string46(s)
 
 
-# 2. ë¬¸ìžì—´ ë‚´ pì™€ yì˜ ê°œìˆ˜
-# numPYí•¨ìˆ˜ëŠ” ëŒ€ë¬¸ìžì™€ ì†Œë¬¸ìžê°€ ì„žì—¬ìžˆëŠ” ë¬¸ìžì—´ së¥¼ ë§¤ê°œë³€ìˆ˜ë¡œ ìž…ë ¥ë°›ìŠµë‹ˆë‹¤.
-# sì— â€˜pâ€™ì˜ ê°œìˆ˜ì™€ â€˜yâ€™ì˜ ê°œìˆ˜ë¥¼ ë¹„êµí•´ ê°™ìœ¼ë©´ True, ë‹¤ë¥´ë©´ Falseë¥¼ ë¦¬í„´í•˜ë„ë¡ í•¨ìˆ˜ë¥¼ ì™„ì„±í•˜ì„¸ìš”. 
-# â€˜pâ€™, â€˜yâ€™ ëª¨ë‘ í•˜ë‚˜ë„ ì—†ëŠ” ê²½ìš°ëŠ” í•­ìƒ Trueë¥¼ ë¦¬í„´í•©ë‹ˆë‹¤. ì˜ˆë¥¼ë“¤ì–´ sê°€ â€œpPoooyYâ€ë©´ Trueë¥¼ ë¦¬í„´í•˜ê³ 
-# â€œPyyâ€ë¼ë©´ Falseë¥¼ ë¦¬í„´í•©ë‹ˆë‹¤.
+# 2. ¹®ÀÚ¿­ ³» p¿Í yÀÇ °³¼ö
+# numPYÇÔ¼ö´Â ´ë¹®ÀÚ¿Í ¼Ò¹®ÀÚ°¡ ¼¯¿©ÀÖ´Â ¹®ÀÚ¿­ s¸¦ ¸Å°³º¯¼ö·Î ÀÔ·Â¹Þ½À´Ï´Ù.
+# s¿¡ ¡®p¡¯ÀÇ °³¼ö¿Í ¡®y¡¯ÀÇ °³¼ö¸¦ ºñ±³ÇØ °°À¸¸é True, ´Ù¸£¸é False¸¦ ¸®ÅÏÇÏµµ·Ï ÇÔ¼ö¸¦ ¿Ï¼ºÇÏ¼¼¿ä. 
+# ¡®p¡¯, ¡®y¡¯ ¸ðµÎ ÇÏ³ªµµ ¾ø´Â °æ¿ì´Â Ç×»ó True¸¦ ¸®ÅÏÇÕ´Ï´Ù. ¿¹¸¦µé¾î s°¡ ¡°pPoooyY¡±¸é True¸¦ ¸®ÅÏÇÏ°í
+# ¡°Pyy¡±¶ó¸é False¸¦ ¸®ÅÏÇÕ´Ï´Ù.
 
 numPY <- function(s) {
   if(str_count(tolower(s), "p") == str_count(tolower(s), "y")) return(T)
@@ -31,10 +32,10 @@ numPY("YYYyyyppp")
 numPY("YyYwedppP")
 
 
-# 3. ì‚¼ê°í˜• ì¶œë ¥í•˜ê¸°
-# printTriangle ë©”ì†Œë“œëŠ” ì–‘ì˜ ì •ìˆ˜ numì„ ë§¤ê°œë³€ìˆ˜ë¡œ ìž…ë ¥ë°›ìŠµë‹ˆë‹¤. 
-# ë‹¤ìŒì„ ì°¸ê³ í•´ *(ë³„)ë¡œ ë†’ì´ê°€ numì¸ ì‚¼ê°í˜•ì„ ë¬¸ìžì—´ë¡œ ë¦¬í„´í•˜ëŠ” printTriangle 
-# ë©”ì†Œë“œë¥¼ ì™„ì„±í•˜ì„¸ìš” printTriangleì´ returní•˜ëŠ” Stringì€ ê°œí–‰ë¬¸ìž(â€˜\nâ€™)ë¡œ ëë‚˜ì•¼ í•©ë‹ˆë‹¤.
+# 3. »ï°¢Çü Ãâ·ÂÇÏ±â
+# printTriangle ¸Þ¼Òµå´Â ¾çÀÇ Á¤¼ö numÀ» ¸Å°³º¯¼ö·Î ÀÔ·Â¹Þ½À´Ï´Ù. 
+# ´ÙÀ½À» Âü°íÇØ *(º°)·Î ³ôÀÌ°¡ numÀÎ »ï°¢ÇüÀ» ¹®ÀÚ¿­·Î ¸®ÅÏÇÏ´Â printTriangle 
+# ¸Þ¼Òµå¸¦ ¿Ï¼ºÇÏ¼¼¿ä printTriangleÀÌ returnÇÏ´Â StringÀº °³Çà¹®ÀÚ(¡®\n¡¯)·Î ³¡³ª¾ß ÇÕ´Ï´Ù.
 
 printTriangle <- function(num) {
   star <- c()
@@ -43,14 +44,14 @@ printTriangle <- function(num) {
     print(star)
   }
 }
-printTriangle(3)
+printTriangle(5)
 
 
-# 4. ìŠ¤íŠ¸ë§ì„ ìˆ«ìžë¡œ ë°”ê¾¸ê¸° (java, python)
-# strToInt ë©”ì†Œë“œëŠ” Stringí˜• strì„ ë§¤ê°œë³€ìˆ˜ë¡œ ë°›ìŠµë‹ˆë‹¤. 
-# strì„ ìˆ«ìžë¡œ ë³€í™˜í•œ ê²°ê³¼ë¥¼ ë°˜í™˜í•˜ë„ë¡ strToIntë¥¼ ì™„ì„±í•˜ì„¸ìš”. 
-# ì˜ˆë¥¼ë“¤ì–´ strì´ â€œ1234â€ì´ë©´ 1234ë¥¼ ë°˜í™˜í•˜ê³ , â€œ-1234â€ì´ë©´ -1234ë¥¼ ë°˜í™˜í•˜ë©´ ë©ë‹ˆë‹¤.
-# strì€ ë¶€í˜¸(+,-)ì™€ ìˆ«ìžë¡œë§Œ êµ¬ì„±ë˜ì–´ ìžˆê³ , ìž˜ëª»ëœ ê°’ì´ ìž…ë ¥ë˜ëŠ” ê²½ìš°ëŠ” ì—†ìŠµë‹ˆë‹¤.
+# 4. ½ºÆ®¸µÀ» ¼ýÀÚ·Î ¹Ù²Ù±â (java, python)
+# strToInt ¸Þ¼Òµå´Â StringÇü strÀ» ¸Å°³º¯¼ö·Î ¹Þ½À´Ï´Ù. 
+# strÀ» ¼ýÀÚ·Î º¯È¯ÇÑ °á°ú¸¦ ¹ÝÈ¯ÇÏµµ·Ï strToInt¸¦ ¿Ï¼ºÇÏ¼¼¿ä. 
+# ¿¹¸¦µé¾î strÀÌ ¡°1234¡±ÀÌ¸é 1234¸¦ ¹ÝÈ¯ÇÏ°í, ¡°-1234¡±ÀÌ¸é -1234¸¦ ¹ÝÈ¯ÇÏ¸é µË´Ï´Ù.
+# strÀº ºÎÈ£(+,-)¿Í ¼ýÀÚ·Î¸¸ ±¸¼ºµÇ¾î ÀÖ°í, Àß¸øµÈ °ªÀÌ ÀÔ·ÂµÇ´Â °æ¿ì´Â ¾ø½À´Ï´Ù.
 
 strToInt <- function(str) {
   return(as.numeric(str))
@@ -60,14 +61,14 @@ a
 class(a)
 
 
-# 5. í–‰ë ¬ì˜ ë§ì…ˆ
-# í–‰ë ¬ì˜ ë§ì…ˆì€ í–‰ê³¼ ì—´ì˜ í¬ê¸°ê°€ ê°™ì€ ë‘ í–‰ë ¬ì˜ ê°™ì€ í–‰, ê°™ì€ ì—´ì˜ ê°’ì„ 
-# ì„œë¡œ ë”í•œ ê²°ê³¼ê°€ ë©ë‹ˆë‹¤. 2ê°œì˜ í–‰ë ¬ì„ ìž…ë ¥ë°›ëŠ” sumMatrix í•¨ìˆ˜ë¥¼ ì™„ì„±í•˜ì—¬ 
-# í–‰ë ¬ ë§ì…ˆì˜ ê²°ê³¼ë¥¼ ë°˜í™˜í•´ ì£¼ì„¸ìš”.
+# 5. Çà·ÄÀÇ µ¡¼À
+# Çà·ÄÀÇ µ¡¼ÀÀº Çà°ú ¿­ÀÇ Å©±â°¡ °°Àº µÎ Çà·ÄÀÇ °°Àº Çà, °°Àº ¿­ÀÇ °ªÀ» 
+# ¼­·Î ´õÇÑ °á°ú°¡ µË´Ï´Ù. 2°³ÀÇ Çà·ÄÀ» ÀÔ·Â¹Þ´Â sumMatrix ÇÔ¼ö¸¦ ¿Ï¼ºÇÏ¿© 
+# Çà·Ä µ¡¼ÀÀÇ °á°ú¸¦ ¹ÝÈ¯ÇØ ÁÖ¼¼¿ä.
 
-# ì˜ˆë¥¼ ë“¤ì–´ 2x2 í–‰ë ¬ì¸ A = ((1, 2), (2, 3)), B = ((3, 4), (5, 6)) ê°€ ì£¼ì–´ì§€ë©´, 
-# ê°™ì€ 2x2 í–‰ë ¬ì¸ ((4, 6), (7, 9))ë¥¼ ë°˜í™˜í•˜ë©´ ë©ë‹ˆë‹¤. 
-# (ì–´ë– í•œ í–‰ë ¬ì—ë„ ëŒ€ì‘í•˜ëŠ” í•¨ìˆ˜ë¥¼ ì™„ì„±í•´ì£¼ì„¸ìš”.)
+# ¿¹¸¦ µé¾î 2x2 Çà·ÄÀÎ A = ((1, 2), (2, 3)), B = ((3, 4), (5, 6)) °¡ ÁÖ¾îÁö¸é, 
+# °°Àº 2x2 Çà·ÄÀÎ ((4, 6), (7, 9))¸¦ ¹ÝÈ¯ÇÏ¸é µË´Ï´Ù. 
+# (¾î¶°ÇÑ Çà·Ä¿¡µµ ´ëÀÀÇÏ´Â ÇÔ¼ö¸¦ ¿Ï¼ºÇØÁÖ¼¼¿ä.)
 
 sumMatrix <- function(a, b) {
   return(a+b)
@@ -77,12 +78,12 @@ b <- matrix(c(2:10), nrow=3, byrow=T); b
 sumMatrix(a, b)
 
 
-# 6. í•¸ë“œí° ë²ˆí˜¸ ê°€ë¦¬ê¸°
-# ë³„ì´ëŠ” í—¬ë¡œì›”ë“œí…”ë ˆì½¤ì—ì„œ ê³ ì§€ì„œë¥¼ ë³´ë‚´ëŠ” ì¼ì„ í•˜ê³  ìžˆìŠµë‹ˆë‹¤. 
-# ê°œì¸ì •ë³´ ë³´í˜¸ë¥¼ ìœ„í•´ ê³ ê°ë“¤ì˜ ì „í™”ë²ˆí˜¸ëŠ” ë§¨ ë’·ìžë¦¬ 4ìžë¦¬ë¥¼ ì œì™¸í•œ ë‚˜ë¨¸ì§€ë¥¼ "*"ìœ¼ë¡œ ë°”ê¿”ì•¼ í•©ë‹ˆë‹¤.
-# ì „í™”ë²ˆí˜¸ë¥¼ ë¬¸ìžì—´ së¡œ ìž…ë ¥ë°›ëŠ” hide_numbersí•¨ìˆ˜ë¥¼ ì™„ì„±í•´ ë³„ì´ë¥¼ ë„ì™€ì£¼ì„¸ìš”
-# ì˜ˆë¥¼ë“¤ì–´ sê°€ "01033334444"ë©´ "*******4444"ë¥¼ ë¦¬í„´í•˜ê³ , "027778888"ì¸ ê²½ìš°ëŠ” 
-# "*****8888"ì„ ë¦¬í„´í•˜ë©´ ë©ë‹ˆë‹¤.
+# 6. ÇÚµåÆù ¹øÈ£ °¡¸®±â
+# º°ÀÌ´Â Çï·Î¿ùµåÅÚ·¹ÄÞ¿¡¼­ °íÁö¼­¸¦ º¸³»´Â ÀÏÀ» ÇÏ°í ÀÖ½À´Ï´Ù. 
+# °³ÀÎÁ¤º¸ º¸È£¸¦ À§ÇØ °í°´µéÀÇ ÀüÈ­¹øÈ£´Â ¸Ç µÞÀÚ¸® 4ÀÚ¸®¸¦ Á¦¿ÜÇÑ ³ª¸ÓÁö¸¦ "*"À¸·Î ¹Ù²ã¾ß ÇÕ´Ï´Ù.
+# ÀüÈ­¹øÈ£¸¦ ¹®ÀÚ¿­ s·Î ÀÔ·Â¹Þ´Â hide_numbersÇÔ¼ö¸¦ ¿Ï¼ºÇØ º°ÀÌ¸¦ µµ¿ÍÁÖ¼¼¿ä
+# ¿¹¸¦µé¾î s°¡ "01033334444"¸é "*******4444"¸¦ ¸®ÅÏÇÏ°í, "027778888"ÀÎ °æ¿ì´Â 
+# "*****8888"À» ¸®ÅÏÇÏ¸é µË´Ï´Ù.
 
 secureNum <- function(num) {
   hide <- c()
@@ -95,13 +96,13 @@ a <- "0212341234"
 secureNum(a)
 
 
-# 7. xë§Œí¼ ê°„ê²©ì´ ìžˆëŠ” nê°œì˜ ìˆ«ìž
-# number_generatorí•¨ìˆ˜ëŠ” xì™€ nì„ ìž…ë ¥ ë°›ìŠµë‹ˆë‹¤. 2ì™€ 5ë¥¼ ìž…ë ¥ ë°›ìœ¼ë©´ 2ë¶€í„° ì‹œìž‘í•´ì„œ 
-# 2ì”© ì¦ê°€í•˜ëŠ” ìˆ«ìžë¥¼ 5ê°œ ê°€ì§€ëŠ” ë¦¬ìŠ¤íŠ¸ë¥¼ ë§Œë“¤ì–´ì„œ ë¦¬í„´í•©ë‹ˆë‹¤. [2,4,6,8,10]
-# 4ì™€ 3ì„ ìž…ë ¥ ë°›ìœ¼ë©´ 4ë¶€í„° ì‹œìž‘í•´ì„œ 4ì”© ì¦ê°€í•˜ëŠ” ìˆ«ìžë¥¼ # 3ê°œ ê°€ì§€ëŠ” ë¦¬ìŠ¤íŠ¸ë¥¼ 
-# ë§Œë“¤ì–´ì„œ ë¦¬í„´í•©ë‹ˆë‹¤. [4,8,12]
-# ì´ë¥¼ ì¼ë°˜í™” í•˜ë©´ xë¶€í„° ì‹œìž‘í•´ì„œ xì”© ì¦ê°€í•˜ëŠ” ìˆ«ìžë¥¼ nê°œ ê°€ì§€ëŠ” ë¦¬ìŠ¤íŠ¸ë¥¼ ë¦¬í„´í•˜ë„ë¡
-# í•¨ìˆ˜ number_generatorë¥¼ ì™„ì„±í•˜ë©´ ë©ë‹ˆë‹¤.
+# 7. x¸¸Å­ °£°ÝÀÌ ÀÖ´Â n°³ÀÇ ¼ýÀÚ
+# number_generatorÇÔ¼ö´Â x¿Í nÀ» ÀÔ·Â ¹Þ½À´Ï´Ù. 2¿Í 5¸¦ ÀÔ·Â ¹ÞÀ¸¸é 2ºÎÅÍ ½ÃÀÛÇØ¼­ 
+# 2¾¿ Áõ°¡ÇÏ´Â ¼ýÀÚ¸¦ 5°³ °¡Áö´Â ¸®½ºÆ®¸¦ ¸¸µé¾î¼­ ¸®ÅÏÇÕ´Ï´Ù. [2,4,6,8,10]
+# 4¿Í 3À» ÀÔ·Â ¹ÞÀ¸¸é 4ºÎÅÍ ½ÃÀÛÇØ¼­ 4¾¿ Áõ°¡ÇÏ´Â ¼ýÀÚ¸¦ # 3°³ °¡Áö´Â ¸®½ºÆ®¸¦ 
+# ¸¸µé¾î¼­ ¸®ÅÏÇÕ´Ï´Ù. [4,8,12]
+# ÀÌ¸¦ ÀÏ¹ÝÈ­ ÇÏ¸é xºÎÅÍ ½ÃÀÛÇØ¼­ x¾¿ Áõ°¡ÇÏ´Â ¼ýÀÚ¸¦ n°³ °¡Áö´Â ¸®½ºÆ®¸¦ ¸®ÅÏÇÏµµ·Ï
+# ÇÔ¼ö number_generator¸¦ ¿Ï¼ºÇÏ¸é µË´Ï´Ù.
 
 number_generator <- function(x, n) {
   result <- c()
@@ -113,22 +114,22 @@ number_generator <- function(x, n) {
 number_generator(4, 4)
 
 
-# 8. í‰ê·  êµ¬í•˜ê¸°
-# def average(list): í•¨ìˆ˜ë¥¼ ì™„ì„±í•´ì„œ ë§¤ê°œë³€ìˆ˜ listì˜ í‰ê· ê°’ì„ returní•˜ë„ë¡ 
-# ë§Œë“¤ì–´ ë³´ì„¸ìš”. ì–´ë– í•œ í¬ê¸°ì˜ listê°€ ì™€ë„ í‰ê· ê°’ì„ êµ¬í•  ìˆ˜ ìžˆì–´ì•¼ í•©ë‹ˆë‹¤.
+# 8. Æò±Õ ±¸ÇÏ±â
+# def average(list): ÇÔ¼ö¸¦ ¿Ï¼ºÇØ¼­ ¸Å°³º¯¼ö listÀÇ Æò±Õ°ªÀ» returnÇÏµµ·Ï 
+# ¸¸µé¾î º¸¼¼¿ä. ¾î¶°ÇÑ Å©±âÀÇ list°¡ ¿Íµµ Æò±Õ°ªÀ» ±¸ÇÒ ¼ö ÀÖ¾î¾ß ÇÕ´Ï´Ù.
 
-defaverage <- function(list) {
+def_average <- function(list) {
   return(mean(list))
 }
-list = c(3,2)
-defaverage(list)
+list = c(3,2,5,20,10)
+def_average(list)
 
 
-# 9. ì œì¼ ìž‘ì€ ìˆ˜ ì œê±°í•˜ê¸°
-# rm_smallí•¨ìˆ˜ëŠ” listíƒ€ìž… ë³€ìˆ˜ mylistì„ ë§¤ê°œë³€ìˆ˜ë¡œ ìž…ë ¥ë°›ìŠµë‹ˆë‹¤. 
-# mylist ì—ì„œ ê°€ìž¥ ìž‘ì€ ìˆ˜ë¥¼ ì œê±°í•œ ë¦¬ìŠ¤íŠ¸ë¥¼ ë¦¬í„´í•˜ê³ , mylistì˜ ì›ì†Œê°€ 
-# 1ê°œ ì´í•˜ì¸ ê²½ìš°ëŠ” []ë¥¼ ë¦¬í„´í•˜ëŠ” í•¨ìˆ˜ë¥¼ ì™„ì„±í•˜ì„¸ìš”. ì˜ˆë¥¼ë“¤ì–´ mylistê°€ 
-# [4,3,2,1]ì¸ ê²½ìš°ëŠ” [4,3,2]ë¥¼ ë¦¬í„´ í•˜ê³ , [10, 8, 22]ë©´ [10, 22]ë¥¼ ë¦¬í„´ í•©ë‹ˆë‹¤.
+# 9. Á¦ÀÏ ÀÛÀº ¼ö Á¦°ÅÇÏ±â
+# rm_smallÇÔ¼ö´Â listÅ¸ÀÔ º¯¼ö mylistÀ» ¸Å°³º¯¼ö·Î ÀÔ·Â¹Þ½À´Ï´Ù. 
+# mylist ¿¡¼­ °¡Àå ÀÛÀº ¼ö¸¦ Á¦°ÅÇÑ ¸®½ºÆ®¸¦ ¸®ÅÏÇÏ°í, mylistÀÇ ¿ø¼Ò°¡ 
+# 1°³ ÀÌÇÏÀÎ °æ¿ì´Â []¸¦ ¸®ÅÏÇÏ´Â ÇÔ¼ö¸¦ ¿Ï¼ºÇÏ¼¼¿ä. ¿¹¸¦µé¾î mylist°¡ 
+# [4,3,2,1]ÀÎ °æ¿ì´Â [4,3,2]¸¦ ¸®ÅÏ ÇÏ°í, [10, 8, 22]¸é [10, 22]¸¦ ¸®ÅÏ ÇÕ´Ï´Ù.
 
 rm_small <- function(mylist) {
   return(mylist[-grep(min(mylist), mylist)])
@@ -137,75 +138,75 @@ mylist <- c(10,22, 8)
 rm_small(mylist)
 
 
-# 10. ì§ìˆ˜ì™€ í™€ìˆ˜
-# evenOrOdd ë©”ì†Œë“œëŠ” intí˜• numì„ ë§¤ê°œë³€ìˆ˜ë¡œ ë°›ìŠµë‹ˆë‹¤. numì´ ì§ìˆ˜ì¼ ê²½ìš° 
-# â€œEvenâ€ì„ ë°˜í™˜í•˜ê³  í™€ìˆ˜ì¸ ê²½ìš° â€œOddâ€ë¥¼ ë°˜í™˜í•˜ë„ë¡ evenOrOddì— ì½”ë“œë¥¼ ìž‘ì„±í•´ ë³´ì„¸ìš”.
-# numì€ 0ì´ìƒì˜ ì •ìˆ˜ì´ë©°, numì´ ìŒìˆ˜ì¸ ê²½ìš°ëŠ” ì—†ìŠµë‹ˆë‹¤.
+# 10. Â¦¼ö¿Í È¦¼ö
+# evenOrOdd ¸Þ¼Òµå´Â intÇü numÀ» ¸Å°³º¯¼ö·Î ¹Þ½À´Ï´Ù. numÀÌ Â¦¼öÀÏ °æ¿ì 
+# ¡°Even¡±À» ¹ÝÈ¯ÇÏ°í È¦¼öÀÎ °æ¿ì ¡°Odd¡±¸¦ ¹ÝÈ¯ÇÏµµ·Ï evenOrOdd¿¡ ÄÚµå¸¦ ÀÛ¼ºÇØ º¸¼¼¿ä.
+# numÀº 0ÀÌ»óÀÇ Á¤¼öÀÌ¸ç, numÀÌ À½¼öÀÎ °æ¿ì´Â ¾ø½À´Ï´Ù.
 
 evenOrOdd <- function(num) {
-  return(ifelse(num <= 0, "ì–‘ì˜ ì •ìˆ˜ë¥¼ ìž…ë ¥í•˜ì‹œì˜¤.",
-        ifelse(num %% 2 == 0, "Even", "Odd")))
+  return(ifelse(num <= 0, "¾çÀÇ Á¤¼ö¸¦ ÀÔ·ÂÇÏ½Ã¿À.",
+                ifelse(num %% 2 == 0, "Even", "Odd")))
 }
 num <- 4
 evenOrOdd(num)
 
 
-# 11. ì„œìš¸ì—ì„œ ê¹€ì„œë°© ì°¾ê¸°
-# findKim í•¨ìˆ˜(ë©”ì†Œë“œ)ëŠ” Stringí˜• ë°°ì—´ seoulì„ ë§¤ê°œë³€ìˆ˜ë¡œ ë°›ìŠµë‹ˆë‹¤.
-# seoulì˜ elementì¤‘ â€œKimâ€ì˜ ìœ„ì¹˜ xë¥¼ ì°¾ì•„, â€œê¹€ì„œë°©ì€ xì— ìžˆë‹¤â€ëŠ” Stringì„ ë°˜í™˜í•˜ì„¸ìš”. 
-# seoulì— â€œKimâ€ì€ ì˜¤ì§ í•œ ë²ˆë§Œ ë‚˜íƒ€ë‚˜ë©° ìž˜ëª»ëœ ê°’ì´ ìž…ë ¥ë˜ëŠ” ê²½ìš°ëŠ” ì—†ìŠµë‹ˆë‹¤.
+# 11. ¼­¿ï¿¡¼­ ±è¼­¹æ Ã£±â
+# findKim ÇÔ¼ö(¸Þ¼Òµå)´Â StringÇü ¹è¿­ seoulÀ» ¸Å°³º¯¼ö·Î ¹Þ½À´Ï´Ù.
+# seoulÀÇ elementÁß ¡°Kim¡±ÀÇ À§Ä¡ x¸¦ Ã£¾Æ, ¡°±è¼­¹æÀº x¿¡ ÀÖ´Ù¡±´Â StringÀ» ¹ÝÈ¯ÇÏ¼¼¿ä. 
+# seoul¿¡ ¡°Kim¡±Àº ¿ÀÁ÷ ÇÑ ¹ø¸¸ ³ªÅ¸³ª¸ç Àß¸øµÈ °ªÀÌ ÀÔ·ÂµÇ´Â °æ¿ì´Â ¾ø½À´Ï´Ù.
 
 findKim <- function(seoul) {
-  return(paste("ê¹€ì„œë°©ì€ ", grep("Kim", seoul), "ì— ìžˆë‹¤"))
+  return(paste("±è¼­¹æÀº ", grep("Kim", seoul), "¿¡ ÀÖ´Ù"))
 }
 seoul <- c("tod", "Kim", "kid")
 findKim(seoul)
 
 
-# 12. ì •ìˆ˜ ì œê³±ê·¼ íŒë³„í•˜ê¸°
-# nextSqaureí•¨ìˆ˜ëŠ” ì •ìˆ˜ nì„ ë§¤ê°œë³€ìˆ˜ë¡œ ìž…ë ¥ë°›ìŠµë‹ˆë‹¤. nì´ ìž„ì˜ì˜ ì •ìˆ˜ xì˜ ì œê³±ì´ë¼ë©´
-# x+1ì˜ ì œê³±ì„ ë¦¬í„´í•˜ê³ , nì´ ìž„ì˜ì˜ ì •ìˆ˜ xì˜ ì œê³±ì´ ì•„ë‹ˆë¼ë©´ â€˜noâ€™ì„ ë¦¬í„´í•˜ëŠ” í•¨ìˆ˜ë¥¼ ì™„ì„±í•˜ì„¸ìš”. 
-# ì˜ˆë¥¼ë“¤ì–´ nì´ 121ì´ë¼ë©´ ì´ëŠ” ì •ìˆ˜ 11ì˜ ì œê³±ì´ë¯€ë¡œ (11+1)ì˜ ì œê³±ì¸ 144ë¥¼ ë¦¬í„´í•˜ê³ , 
-# 3ì´ë¼ë©´ â€˜noâ€™ì„ ë¦¬í„´í•˜ë©´ ë©ë‹ˆë‹¤.
+# 12. Á¤¼ö Á¦°ö±Ù ÆÇº°ÇÏ±â
+# nextSqaureÇÔ¼ö´Â Á¤¼ö nÀ» ¸Å°³º¯¼ö·Î ÀÔ·Â¹Þ½À´Ï´Ù. nÀÌ ÀÓÀÇÀÇ Á¤¼ö xÀÇ Á¦°öÀÌ¶ó¸é
+# x+1ÀÇ Á¦°öÀ» ¸®ÅÏÇÏ°í, nÀÌ ÀÓÀÇÀÇ Á¤¼ö xÀÇ Á¦°öÀÌ ¾Æ´Ï¶ó¸é ¡®no¡¯À» ¸®ÅÏÇÏ´Â ÇÔ¼ö¸¦ ¿Ï¼ºÇÏ¼¼¿ä. 
+# ¿¹¸¦µé¾î nÀÌ 121ÀÌ¶ó¸é ÀÌ´Â Á¤¼ö 11ÀÇ Á¦°öÀÌ¹Ç·Î (11+1)ÀÇ Á¦°öÀÎ 144¸¦ ¸®ÅÏÇÏ°í, 
+# 3ÀÌ¶ó¸é ¡®no¡¯À» ¸®ÅÏÇÏ¸é µË´Ï´Ù.
 
 nextSqaure <- function(n) {
   return(ifelse(ceiling(sqrt(n)) - sqrt(n) < 1e-10, (n+1)^2, "no"))
 }
-n <- 9
+n <- 4
 nextSqaure(n)
 
 
-# 13. ìžë¦¿ ìˆ˜ ë”í•˜ê¸°
-# sum_digití•¨ìˆ˜ëŠ” ìžì—°ìˆ˜ë¥¼ ì „ë‹¬ ë°›ì•„ì„œ ìˆ«ìžì˜ ê° ìžë¦¿ìˆ˜ì˜ í•©ì„ êµ¬í•´ì„œ returní•©ë‹ˆë‹¤.
-# ì˜ˆë¥¼ë“¤ì–´ number = 123ì´ë©´ 1 + 2 + 3 = 6ì„ returní•˜ë©´ ë©ë‹ˆë‹¤. sum_digití•¨ìˆ˜ë¥¼ ì™„ì„±í•´ë³´ì„¸ìš”.
+# 13. ÀÚ¸´ ¼ö ´õÇÏ±â
+# sum_digitÇÔ¼ö´Â ÀÚ¿¬¼ö¸¦ Àü´Þ ¹Þ¾Æ¼­ ¼ýÀÚÀÇ °¢ ÀÚ¸´¼öÀÇ ÇÕÀ» ±¸ÇØ¼­ returnÇÕ´Ï´Ù.
+# ¿¹¸¦µé¾î number = 123ÀÌ¸é 1 + 2 + 3 = 6À» returnÇÏ¸é µË´Ï´Ù. sum_digitÇÔ¼ö¸¦ ¿Ï¼ºÇØº¸¼¼¿ä.
 
 sum_digit <- function(num) {
   return(sum(as.numeric(unlist(strsplit(as.character(num), "")))))
 }
-num <- 1234
+num <- 123456
 sum_digit(num)
 
 
-# 14. ìˆ˜ë°•ìˆ˜ë°•ìˆ˜ë°•ìˆ˜ë°•ìˆ˜ë°•ìˆ˜?
-# water_meloní•¨ìˆ˜ëŠ” ì •ìˆ˜ nì„ ë§¤ê°œë³€ìˆ˜ë¡œ ìž…ë ¥ë°›ìŠµë‹ˆë‹¤. ê¸¸ì´ê°€ nì´ê³ , 
-# ìˆ˜ë°•ìˆ˜ë°•ìˆ˜â€¦ì™€ ê°™ì€ íŒ¨í„´ì„ ìœ ì§€í•˜ëŠ” ë¬¸ìžì—´ì„ ë¦¬í„´í•˜ë„ë¡ í•¨ìˆ˜ë¥¼ ì™„ì„±í•˜ì„¸ìš”.
-# ì˜ˆë¥¼ë“¤ì–´ nì´ 4ì´ë©´ â€˜ìˆ˜ë°•ìˆ˜ë°•â€™ì„ ë¦¬í„´í•˜ê³  3ì´ë¼ë©´ â€˜ìˆ˜ë°•ìˆ˜â€™ë¥¼ ë¦¬í„´í•˜ë©´ ë©ë‹ˆë‹¤.
+# 14. ¼ö¹Ú¼ö¹Ú¼ö¹Ú¼ö¹Ú¼ö¹Ú¼ö?
+# water_melonÇÔ¼ö´Â Á¤¼ö nÀ» ¸Å°³º¯¼ö·Î ÀÔ·Â¹Þ½À´Ï´Ù. ±æÀÌ°¡ nÀÌ°í, 
+# ¼ö¹Ú¼ö¹Ú¼ö¡¦¿Í °°Àº ÆÐÅÏÀ» À¯ÁöÇÏ´Â ¹®ÀÚ¿­À» ¸®ÅÏÇÏµµ·Ï ÇÔ¼ö¸¦ ¿Ï¼ºÇÏ¼¼¿ä.
+# ¿¹¸¦µé¾î nÀÌ 4ÀÌ¸é ¡®¼ö¹Ú¼ö¹Ú¡¯À» ¸®ÅÏÇÏ°í 3ÀÌ¶ó¸é ¡®¼ö¹Ú¼ö¡¯¸¦ ¸®ÅÏÇÏ¸é µË´Ï´Ù.
 
 water_melon <- function(n) {
   result <- ""
-  ifelse(n %% 2 == 0 , result <- str_dup("ìˆ˜ë°•", as.integer(n/2)), 
-         result <- paste("ìˆ˜", str_dup("ë°•ìˆ˜", as.integer((n-1)/2)), sep=""))
+  ifelse(n %% 2 == 0 , result <- str_dup("¼ö¹Ú", as.integer(n/2)), 
+         result <- paste("¼ö", str_dup("¹Ú¼ö", as.integer((n-1)/2)), sep=""))
   return(result)
 }
 water_melon(6)
 
 
-# 15. ê°™ì€ ìˆ«ìžëŠ” ì‹«ì–´
-# no_continuousí•¨ìˆ˜ëŠ” ìŠ¤íŠ¸ë§ së¥¼ ë§¤ê°œë³€ìˆ˜ë¡œ ìž…ë ¥ë°›ìŠµë‹ˆë‹¤.
-# sì˜ ê¸€ìžë“¤ì˜ ìˆœì„œë¥¼ ìœ ì§€í•˜ë©´ì„œ, ê¸€ìžë“¤ ì¤‘ ì—°ì†ì ìœ¼ë¡œ ë‚˜íƒ€ë‚˜ëŠ” ì•„ì´í…œì€ 
-# ì œê±°ëœ ë°°ì—´(íŒŒì´ì¬ì€ list)ì„ ë¦¬í„´í•˜ë„ë¡ í•¨ìˆ˜ë¥¼ ì™„ì„±í•˜ì„¸ìš”. 
-# ì˜ˆë¥¼ë“¤ì–´ ë‹¤ìŒê³¼ ê°™ì´ ë™ìž‘í•˜ë©´ ë©ë‹ˆë‹¤.
-# sê°€ â€˜133303â€™ì´ë¼ë©´ [â€˜1â€™, â€˜3â€™, â€˜0â€™, â€˜3â€™]ë¥¼ ë¦¬í„´ sê°€ â€˜47330â€™ì´ë¼ë©´ [4, 7, 3, 0]ì„ ë¦¬í„´
+# 15. °°Àº ¼ýÀÚ´Â ½È¾î
+# no_continuousÇÔ¼ö´Â ½ºÆ®¸µ s¸¦ ¸Å°³º¯¼ö·Î ÀÔ·Â¹Þ½À´Ï´Ù.
+# sÀÇ ±ÛÀÚµéÀÇ ¼ø¼­¸¦ À¯ÁöÇÏ¸é¼­, ±ÛÀÚµé Áß ¿¬¼ÓÀûÀ¸·Î ³ªÅ¸³ª´Â ¾ÆÀÌÅÛÀº 
+# Á¦°ÅµÈ ¹è¿­(ÆÄÀÌ½ãÀº list)À» ¸®ÅÏÇÏµµ·Ï ÇÔ¼ö¸¦ ¿Ï¼ºÇÏ¼¼¿ä. 
+# ¿¹¸¦µé¾î ´ÙÀ½°ú °°ÀÌ µ¿ÀÛÇÏ¸é µË´Ï´Ù.
+# s°¡ ¡®133303¡¯ÀÌ¶ó¸é [¡®1¡¯, ¡®3¡¯, ¡®0¡¯, ¡®3¡¯]¸¦ ¸®ÅÏ s°¡ ¡®47330¡¯ÀÌ¶ó¸é [4, 7, 3, 0]À» ¸®ÅÏ
 
 no_continuous <- function(s) {
   char <- unlist(strsplit(s, ""))
@@ -223,11 +224,11 @@ a <- "47330"
 no_continuous(a)
 
 
-# 16. ë¬¸ìžì—´ ë‚´ ë§ˆìŒëŒ€ë¡œ ì •ë ¬í•˜ê¸°
-# strange_sortí•¨ìˆ˜ëŠ” stringsì™€ nì´ë¼ëŠ” ë§¤ê°œë³€ìˆ˜ë¥¼ ë°›ì•„ë“¤ìž…ë‹ˆë‹¤. stringsëŠ” ë¬¸ìžì—´ë¡œ 
-# êµ¬ì„±ëœ ë¦¬ìŠ¤íŠ¸ì¸ë°, ê° ë¬¸ìžì—´ì„ ì¸ë±ìŠ¤ nì¸ ê¸€ìžë¥¼ ê¸°ì¤€ìœ¼ë¡œ ì •ë ¬í•˜ë©´ ë©ë‹ˆë‹¤.
-# ì˜ˆë¥¼ë“¤ì–´ stringsê°€ [â€œsunâ€, â€œbedâ€, â€œcarâ€]ì´ê³  nì´ 1ì´ë©´ ê° ë‹¨ì–´ì˜ ì¸ë±ìŠ¤ 1ì¸ ë¬¸ìž u, e ,aë¥¼
-# ê¸°ì¤€ìœ¼ë¡œ ì •ë ¬í•´ì•¼ í•˜ë¯€ë¡œ ê²°ê³¼ëŠ” [â€œcarâ€, â€œbedâ€, â€œsunâ€]ì´ ë©ë‹ˆë‹¤. strange_sortí•¨ìˆ˜ë¥¼ ì™„ì„±í•´ ë³´ì„¸ìš”.
+# 16. ¹®ÀÚ¿­ ³» ¸¶À½´ë·Î Á¤·ÄÇÏ±â
+# strange_sortÇÔ¼ö´Â strings¿Í nÀÌ¶ó´Â ¸Å°³º¯¼ö¸¦ ¹Þ¾ÆµéÀÔ´Ï´Ù. strings´Â ¹®ÀÚ¿­·Î 
+# ±¸¼ºµÈ ¸®½ºÆ®ÀÎµ¥, °¢ ¹®ÀÚ¿­À» ÀÎµ¦½º nÀÎ ±ÛÀÚ¸¦ ±âÁØÀ¸·Î Á¤·ÄÇÏ¸é µË´Ï´Ù.
+# ¿¹¸¦µé¾î strings°¡ [¡°sun¡±, ¡°bed¡±, ¡°car¡±]ÀÌ°í nÀÌ 1ÀÌ¸é °¢ ´Ü¾îÀÇ ÀÎµ¦½º 1ÀÎ ¹®ÀÚ u, e ,a¸¦
+# ±âÁØÀ¸·Î Á¤·ÄÇØ¾ß ÇÏ¹Ç·Î °á°ú´Â [¡°car¡±, ¡°bed¡±, ¡°sun¡±]ÀÌ µË´Ï´Ù. strange_sortÇÔ¼ö¸¦ ¿Ï¼ºÇØ º¸¼¼¿ä.
 
 strange_sort <- function(strings, n) {
   tmp <- data.frame(matrix(unlist(strsplit(strings, "")), nrow=length(strings), byrow=T))
@@ -251,10 +252,10 @@ strings <- c("sun", "bed", "car")
 strange_sort(strings, 2)
 
 
-# 17. í”¼ë³´ë‚˜ì¹˜ ìˆ˜
-# í”¼ë³´ë‚˜ì¹˜ ìˆ˜ëŠ” F(0) = 0, F(1) = 1ì¼ ë•Œ, 2 ì´ìƒì˜ nì— ëŒ€í•˜ì—¬ F(n) = F(n-1) + F(n-2) ê°€ 
-# ì ìš©ë˜ëŠ” ì í™”ì‹ìž…ë‹ˆë‹¤. 2 ì´ìƒì˜ nì´ ìž…ë ¥ë˜ì—ˆì„ ë•Œ, fibonacci í•¨ìˆ˜ë¥¼ ì œìž‘í•˜ì—¬ në²ˆì§¸ í”¼ë³´ë‚˜ì¹˜ ìˆ˜ë¥¼ 
-# ë°˜í™˜í•´ ì£¼ì„¸ìš”. ì˜ˆë¥¼ ë“¤ì–´ n = 3ì´ë¼ë©´ 2ë¥¼ ë°˜í™˜í•´ì£¼ë©´ ë©ë‹ˆë‹¤.
+# 17. ÇÇº¸³ªÄ¡ ¼ö
+# ÇÇº¸³ªÄ¡ ¼ö´Â F(0) = 0, F(1) = 1ÀÏ ¶§, 2 ÀÌ»óÀÇ n¿¡ ´ëÇÏ¿© F(n) = F(n-1) + F(n-2) °¡ 
+# Àû¿ëµÇ´Â Á¡È­½ÄÀÔ´Ï´Ù. 2 ÀÌ»óÀÇ nÀÌ ÀÔ·ÂµÇ¾úÀ» ¶§, fibonacci ÇÔ¼ö¸¦ Á¦ÀÛÇÏ¿© n¹øÂ° ÇÇº¸³ªÄ¡ ¼ö¸¦ 
+# ¹ÝÈ¯ÇØ ÁÖ¼¼¿ä. ¿¹¸¦ µé¾î n = 3ÀÌ¶ó¸é 2¸¦ ¹ÝÈ¯ÇØÁÖ¸é µË´Ï´Ù.
 
 fibo <- function(n) {
   result <- c(0, 1)
@@ -268,12 +269,25 @@ fibo <- function(n) {
 fibo(7)
 
 
-# 18. ìµœëŒ€ê³µì•½ìˆ˜ì™€ ìµœì†Œê³µë°°ìˆ˜
-# ë‘ ìˆ˜ë¥¼ ìž…ë ¥ë°›ì•„ ë‘ ìˆ˜ì˜ ìµœëŒ€ê³µì•½ìˆ˜ì™€ ìµœì†Œê³µë°°ìˆ˜ë¥¼ ë°˜í™˜í•´ì£¼ëŠ” gcdlcm í•¨ìˆ˜ë¥¼ ì™„ì„±í•´ ë³´ì„¸ìš”. 
-# ë°°ì—´ì˜ ë§¨ ì•žì— ìµœëŒ€ê³µì•½ìˆ˜, ê·¸ ë‹¤ìŒ ìµœì†Œê³µë°°ìˆ˜ë¥¼ ë„£ì–´ ë°˜í™˜í•˜ë©´ ë©ë‹ˆë‹¤. ì˜ˆë¥¼ ë“¤ì–´ gcdlcm(3,12) ê°€
-# ìž…ë ¥ë˜ë©´, [3, 12]ë¥¼ ë°˜í™˜í•´ì£¼ë©´ ë©ë‹ˆë‹¤.
+# 18. ÃÖ´ë°ø¾à¼ö¿Í ÃÖ¼Ò°ø¹è¼ö
+# µÎ ¼ö¸¦ ÀÔ·Â¹Þ¾Æ µÎ ¼öÀÇ ÃÖ´ë°ø¾à¼ö¿Í ÃÖ¼Ò°ø¹è¼ö¸¦ ¹ÝÈ¯ÇØÁÖ´Â gcdlcm ÇÔ¼ö¸¦ ¿Ï¼ºÇØ º¸¼¼¿ä. 
+# ¹è¿­ÀÇ ¸Ç ¾Õ¿¡ ÃÖ´ë°ø¾à¼ö, ±× ´ÙÀ½ ÃÖ¼Ò°ø¹è¼ö¸¦ ³Ö¾î ¹ÝÈ¯ÇÏ¸é µË´Ï´Ù. ¿¹¸¦ µé¾î gcdlcm(3,12) °¡
+# ÀÔ·ÂµÇ¸é, [3, 12]¸¦ ¹ÝÈ¯ÇØÁÖ¸é µË´Ï´Ù.
 
 gcdlcm <- function(a, b) {
-  
+  an  <- c()
+  bn <- c()
+  for(i in 1:a) { if(a %% i == 0) an <- append(an, i) }
+  for(i in 1:b) { if(b %% i == 0) bn <- append(bn, i) }
+  gcd <- ifelse(length(an) <= length(bn), max(subset(an, an %in% bn)), max(subset(bn, bn %in% an)))
+  ad <- a/gcd
+  bd <- b/gcd
+  lcm <- ad*bd*gcd
+  return(c(gcd, lcm))
 }
+a <- 18
+b <- 24
+gcdlcm(a, b)
 
+
+# 19. 
